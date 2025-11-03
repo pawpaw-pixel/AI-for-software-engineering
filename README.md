@@ -22,13 +22,17 @@ records = [
 print(sort_dicts_by_key(records, "age"))
 print(sort_dicts_by_key_manual(records, "age"))
 
+#200 WORD ANALYSIS
+
 The AI-generated function is more concise, readable, and efficient. It uses Python’s built-in sorted() function, which implements Timsort, an algorithm optimized for real-world data with an average and worst-case time complexity of O(n log n). The use of a lambda expression makes the sorting process clear and Pythonic.
 
-#200 WORD ANALYSIS
 In contrast, the manual implementation uses a bubble sort algorithm with nested loops, leading to a time complexity of O(n²). While it demonstrates the logic behind sorting, it is inefficient for large datasets and more error-prone to write or modify.
 
 AI-powered tools like GitHub Copilot and Tabnine leverage pattern recognition from large codebases to produce optimized and idiomatic solutions instantly. This saves time, reduces human error, and promotes best coding practices. However, human understanding is still essential to verify correctness, handle edge cases, and maintain control over algorithmic efficiency.
 
 Conclusion:
+
+✅ AI version — more efficient, maintainable, and elegant.
+❌ Manual version — slower but good for learning fundamentals.
 ✅ AI version — more efficient, maintainable, and elegant.
 ❌ Manual version — slower but good for learning fundamentals.
