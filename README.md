@@ -1,6 +1,8 @@
 # AI-for-software-engineering
 week 4 assignment
 
+TASK ONE:
+
 # AI-Suggested Code
 def sort_dicts_by_key(data, key):
     return sorted(data, key=lambda x: x[key])
@@ -34,5 +36,45 @@ Conclusion:
 
 ✅ AI version — more efficient, maintainable, and elegant.
 ❌ Manual version — slower but good for learning fundamentals.
+
+TASK TWO:
+
+# AI-Generated Selenium Python Test for Login Page
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+
+driver = webdriver.Chrome()
+driver.get("https://www.saucedemo.com/login")
+
+# ✅ Test 1: Valid Credentials
+
+driver.find_element(By.ID, "username").send_keys("validUser")
+driver.find_element(By.ID, "password").send_keys("validPass")
+driver.find_element(By.ID, "loginButton").click()
+time.sleep(2)
+assert "Dashboard" in driver.title
+print("✅ Valid login test passed")
+
+# ❌ Test 2: Invalid Credentials
+
+driver.get("https://www.saucedemo.com/login")
+driver.find_element(By.ID, "username").send_keys("wrongUser")
+driver.find_element(By.ID, "password").send_keys("wrongPass")
+driver.find_element(By.ID, "loginButton").click()
+time.sleep(2)
+assert "Invalid" in driver.page_source
+print("✅ Invalid login test passed")
+
+driver.quit()
+
+
+🧾 150-Word Summary
+
+AI-driven testing tools like Selenium IDE with AI plugins and Testim.io enhance the automation process by learning from user interactions and adapting to UI changes automatically. Traditional scripts often fail when elements like buttons or input fields change identifiers, but AI-powered tools use visual recognition and self-healing locators to maintain test reliability. This dramatically improves test coverage and reduces maintenance effort.
+
+In this login test, AI ensures both valid and invalid credential scenarios are tested efficiently with minimal manual updates. The tool can even suggest additional edge cases, such as empty fields or locked accounts, improving overall quality assurance. Compared to manual testing, AI-driven automation provides faster feedback loops, higher accuracy, and continuous adaptability across UI versions — saving time and ensuring more stable software releases.
 ✅ AI version — more efficient, maintainable, and elegant.
 ❌ Manual version — slower but good for learning fundamentals.
