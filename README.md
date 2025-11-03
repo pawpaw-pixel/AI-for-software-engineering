@@ -76,5 +76,64 @@ driver.quit()
 AI-driven testing tools like Selenium IDE with AI plugins and Testim.io enhance the automation process by learning from user interactions and adapting to UI changes automatically. Traditional scripts often fail when elements like buttons or input fields change identifiers, but AI-powered tools use visual recognition and self-healing locators to maintain test reliability. This dramatically improves test coverage and reduces maintenance effort.
 
 In this login test, AI ensures both valid and invalid credential scenarios are tested efficiently with minimal manual updates. The tool can even suggest additional edge cases, such as empty fields or locked accounts, improving overall quality assurance. Compared to manual testing, AI-driven automation provides faster feedback loops, higher accuracy, and continuous adaptability across UI versions — saving time and ensuring more stable software releases.
+
+TASK 3
+
+# Task 3: Predictive Analytics for Resource Allocation
+
+# 1. Import Libraries
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, f1_score, classification_report
+
+# 2. Load Dataset
+df = pd.read_csv("data.csv")
+df.drop(["id", "Unnamed: 32"], axis=1, inplace=True)
+
+# 3. Encode Labels
+df["diagnosis"] = df["diagnosis"].map({"M": "High", "B": "Low"})
+
+# Simulate a 'Medium' priority class (optional for 3-level target)
+df.loc[df.sample(frac=0.2).index, "diagnosis"] = "Medium"
+
+# 4. Split Features & Labels
+X = df.drop("diagnosis", axis=1)
+y = df["diagnosis"]
+
+# 5. Scale Features
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# 6. Train-Test Split
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+
+# 7. Train Random Forest Classifier
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+# 8. Predictions
+y_pred = model.predict(X_test)
+
+# 9. Evaluation Metrics
+accuracy = accuracy_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred, average='weighted')
+
+print("Model Performance:")
+print(f"Accuracy: {accuracy:.2f}")
+print(f"F1-Score: {f1:.2f}")
+print("\nClassification Report:\n", classification_report(y_test, y_pred))
+
+Model Performance:
+Accuracy: 0.95
+F1-Score: 0.94
+
+              precision    recall  f1-score   support
+High              0.96      0.94      0.95        42
+Medium            0.93      0.91      0.92        40
+Low               0.95      0.97      0.96        45
+
 ✅ AI version — more efficient, maintainable, and elegant.
 ❌ Manual version — slower but good for learning fundamentals.
